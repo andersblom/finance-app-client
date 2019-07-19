@@ -13,7 +13,11 @@
         "resolveJsonModule": true,
         "isolatedModules": true,
         "allowSyntheticDefaultImports": true,
-        "jsx": "preserve"
+        "jsx": "preserve",
+        "baseUrl": "./",
+        "paths": {
+            "components": ["components/"]
+        }
     },
     "exclude": ["node_modules"],
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
