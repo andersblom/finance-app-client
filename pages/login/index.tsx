@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Input from 'components/form/Input/Input';
+import LoginForm from 'components/LoginForm/LoginForm';
 
 const LoginIndex: React.FunctionComponent = () => {
     const handleSubmit = (e: React.FormEvent) => {
@@ -10,16 +10,7 @@ const LoginIndex: React.FunctionComponent = () => {
     return (
         <div>
             <div>Login</div>
-            <form onSubmit={handleSubmit}>
-                <Input
-                    name="email"
-                    label="Email"
-                    placeholder="Please enter your email"
-                    type="text"
-                />
-                <Input name="password" label="Password" type="password" />
-                <input type="submit" value="Log in" />
-            </form>
+            <LoginForm onSubmit={handleSubmit} />
         </div>
     );
 };
