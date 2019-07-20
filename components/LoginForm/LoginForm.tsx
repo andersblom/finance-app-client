@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Input from 'components/form/Input/Input';
 
 type Props = {
-    onSubmit: (e: React.FormEvent) => void;
+    onSubmit: (e: React.FormEvent) => Action;
 };
 
 const LoginForm: React.FunctionComponent<Props> = ({ onSubmit }) => {

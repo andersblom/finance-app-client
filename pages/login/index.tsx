@@ -1,25 +1,45 @@
 import React from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { logUserIn as logUserInAction } from 'actions/user';
 
 import LoginForm from 'components/LoginForm/LoginForm';
 
-const LoginIndex: React.FunctionComponent = () => {
-    const handleSubmit = (e: React.FormEvent) => {
+type Props = {
+    logUserIn;
+    user;
+};
+
+const LoginIndex: React.FunctionComponent<Props> = ({ logUserIn, user }) => {
+    const handleSubmit = (e: React.FormEvent): Action => {
         e.preventDefault();
-        axios
-            .post('http://finance-app-api.test/api/login', {
-                email: e.target[0].value,
-                password: e.target[1].value,
-            })
-            .then(res => console.log(res));
-        console.dir(e.target[0].value, e.target[1].value);
+        return logUserIn(e.target[0].value, e.target[1].value);
     };
     return (
         <div>
-            <div>Login</div>
-            <LoginForm onSubmit={handleSubmit} />
+            <div>
+                <div>Login</div>
+                <LoginForm onSubmit={handleSubmit} />
+            </div>
+            {user && (
+                <div>
+                    <div>currently logged in</div>
+                    <div>{user.name}</div>
+                    <div>{user.email}</div>
+                </div>
+            )}
         </div>
     );
 };
 
-export default LoginIndex;
+const mapStateToProps = (state: TEMP_any): TEMP_any => {
+    return {
+        user: state.user.user,
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    {
+        logUserIn: logUserInAction,
+    }
+)(LoginIndex);
