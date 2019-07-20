@@ -14,6 +14,7 @@ module.exports = {
   moduleNameMapper: {
     '^actions[/](.+)': '<rootDir>/actions/$1',
     '^components[/](.+)': '<rootDir>/components/$1',
+    '^containers[/](.+)': '<rootDir>/containers/$1',
     '^lib[/](.+)': '<rootDir>/lib/$1',
     '^reducers[/](.+)': '<rootDir>/reducers/$1',
   },

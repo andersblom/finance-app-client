@@ -18,6 +18,7 @@
         "paths": {
             "actions": ["actions/"],
             "components": ["components/"],
+            "containers": ["containers/"],
             "lib": ["lib/"],
             "reducers": ["reducers/"]
         }
