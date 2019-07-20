@@ -21,6 +21,10 @@ describe('LoginForm', () => {
             .find('input[name="email"]')
             .simulate('change', { target: { value: 'anders@andersblom.dk' } });
 
+        expect(wrapper.find('input[type="submit"]').props().disabled).toBe(
+            true
+        );
+
         wrapper
             .find('input[name="password"]')
             .simulate('change', { target: { value: 'testing123' } });
