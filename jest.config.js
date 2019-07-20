@@ -12,6 +12,9 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   collectCoverage: false,
   moduleNameMapper: {
+    '^actions[/](.+)': '<rootDir>/actions/$1',
     '^components[/](.+)': '<rootDir>/components/$1',
+    '^lib[/](.+)': '<rootDir>/lib/$1',
+    '^reducers[/](.+)': '<rootDir>/reducers/$1',
   },
 };

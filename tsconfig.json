@@ -16,7 +16,10 @@
         "jsx": "preserve",
         "baseUrl": "./",
         "paths": {
-            "components": ["components/"]
+            "actions": ["actions/"],
+            "components": ["components/"],
+            "lib": ["lib/"],
+            "reducers": ["reducers/"]
         }
     },
     "exclude": [
