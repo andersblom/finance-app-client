@@ -19,6 +19,11 @@ const userReducer = (state: UserState = {}, action: Action) => {
                 user: action.payload.user,
                 token: action.payload.token,
             };
+        case userActions.SET_ERROR:
+            return {
+                ...state,
+                error: action.payload,
+            };
         default:
             return state;
     }

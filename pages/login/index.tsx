@@ -7,9 +7,14 @@ import LoginForm from 'components/LoginForm/LoginForm';
 type Props = {
     logUserIn;
     user;
+    error: string;
 };
 
-const LoginIndex: React.FunctionComponent<Props> = ({ logUserIn, user }) => {
+const LoginIndex: React.FunctionComponent<Props> = ({
+    logUserIn,
+    user,
+    error,
+}) => {
     const handleSubmit = (e: React.FormEvent): Action => {
         e.preventDefault();
         return logUserIn(e.target[0].value, e.target[1].value);
@@ -19,10 +24,12 @@ const LoginIndex: React.FunctionComponent<Props> = ({ logUserIn, user }) => {
             <div>
                 <div>Login</div>
                 <LoginForm onSubmit={handleSubmit} />
+                {error && <div>{error}</div>}
             </div>
+            <hr />
             {user && (
                 <div>
-                    <div>currently logged in</div>
+                    <div>Success! Current user:</div>
                     <div>{user.name}</div>
                     <div>{user.email}</div>
                 </div>
@@ -34,6 +41,7 @@ const LoginIndex: React.FunctionComponent<Props> = ({ logUserIn, user }) => {
 const mapStateToProps = (state: TEMP_any): TEMP_any => {
     return {
         user: state.user.user,
+        error: state.user.error,
     };
 };
 
