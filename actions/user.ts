@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
+import { AnyAction, ActionCreator } from 'redux';
 import Router from 'next/router';
 
 import { User } from 'typings/interfaces';
@@ -15,7 +15,7 @@ export interface SetUserAction {
     payload: User;
 }
 
-export const setUser = (user: User): SetUserAction => {
+export const setUser: ActionCreator<SetUserAction> = (user: User) => {
     return { type: userActions.SET, payload: user };
 };
 
@@ -24,7 +24,9 @@ export interface SetUserErrorAction {
     payload: string;
 }
 
-export const setUserError = (error: string): SetUserErrorAction => {
+export const setUserError: ActionCreator<SetUserErrorAction> = (
+    error: string
+) => {
     return {
         type: userActions.SET_ERROR,
         payload: error,

@@ -1,13 +1,14 @@
+import { Reducer } from 'redux';
 import { userActions } from 'actions/user';
 
-import { User } from 'typings/interfaces';
+import { UserState } from 'typings/interfaces';
 
-export interface UserState {
-    authenticated?: User;
-    error?: string;
-}
+export const initialState: UserState = {};
 
-const userReducer = (state: UserState = {}, action: Action) => {
+const userReducer: Reducer<UserState> = (
+    state: UserState = initialState,
+    action
+) => {
     switch (action.type) {
         case userActions.SET:
             return {
