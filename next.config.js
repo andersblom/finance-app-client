@@ -11,6 +11,7 @@ module.exports = {
     config.resolve.alias['containers'] = path.join (__dirname, 'containers');
     config.resolve.alias['lib'] = path.join (__dirname, 'lib');
     config.resolve.alias['reducers'] = path.join (__dirname, 'reducers');
+    config.resolve.alias['typings'] = path.join (__dirname, 'typings');
 
     config.plugins = [
       ...config.plugins,

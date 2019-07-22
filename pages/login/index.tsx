@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logUserIn as logUserInAction } from 'actions/user';
 
+import { logUserIn as logUserInAction } from 'actions/user';
 import LoginForm from 'components/LoginForm/LoginForm';
+import { User } from 'typings/interfaces';
 
 type Props = {
     logUserIn;
-    user;
+    user: User;
     error: string;
 };
 
@@ -39,7 +40,7 @@ const LoginIndex: React.FunctionComponent<Props> = ({
 };
 
 const mapStateToProps = (state: TEMP_any): TEMP_any => ({
-    user: state.user.user,
+    user: state.user.authenticated,
     error: state.user.error,
 });
 

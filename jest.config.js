@@ -17,5 +17,6 @@ module.exports = {
     '^containers[/](.+)': '<rootDir>/containers/$1',
     '^lib[/](.+)': '<rootDir>/lib/$1',
     '^reducers[/](.+)': '<rootDir>/reducers/$1',
+    '^typings[/](.+)': '<rootDir>/typings/$1',
   },
 };

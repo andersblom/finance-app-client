@@ -1,14 +1,10 @@
 import { userActions } from 'actions/user';
 
-export interface User {
-    id: number;
-    name: string;
-    email: string;
-}
+import { User } from 'typings/interfaces';
 
 export interface UserState {
-    token?: string;
-    user?: User;
+    authenticated?: User;
+    error?: string;
 }
 
 const userReducer = (state: UserState = {}, action: Action) => {
@@ -16,8 +12,7 @@ const userReducer = (state: UserState = {}, action: Action) => {
         case userActions.SET:
             return {
                 ...state,
-                user: action.payload.user,
-                token: action.payload.token,
+                authenticated: action.payload,
             };
         case userActions.SET_ERROR:
             return {

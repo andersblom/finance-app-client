@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { User } from 'typings/interfaces';
+
 type Props = {
-    user: TEMP_any;
+    user: User;
 };
 
 const Dashboard: React.FunctionComponent<Props> = ({ user }) => (
@@ -10,7 +12,7 @@ const Dashboard: React.FunctionComponent<Props> = ({ user }) => (
 );
 
 const mapStateToProps = (state: TEMP_any): TEMP_any => ({
-    user: state.user.user,
+    user: state.user.authenticated,
 });
 
 export default connect(

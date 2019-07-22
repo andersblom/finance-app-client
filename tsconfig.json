@@ -20,7 +20,8 @@
             "components": ["components/"],
             "containers": ["containers/"],
             "lib": ["lib/"],
-            "reducers": ["reducers/"]
+            "reducers": ["reducers/"],
+            "typings": ["typings/"]
         }
     },
     "exclude": [

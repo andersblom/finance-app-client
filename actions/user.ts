@@ -3,6 +3,8 @@ import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import Router from 'next/router';
 
+import { User } from 'typings/interfaces';
+
 export const userActions = {
     SET: 'user/SET',
     SET_ERROR: 'user/SET_ERROR',
@@ -10,14 +12,11 @@ export const userActions = {
 
 export interface SetUserAction {
     type: string;
-    payload: {
-        token: string;
-        user: TEMP_any;
-    };
+    payload: User;
 }
 
-export const setUser = (token: string, user: TEMP_any): SetUserAction => {
-    return { type: userActions.SET, payload: { token, user } };
+export const setUser = (user: User): SetUserAction => {
+    return { type: userActions.SET, payload: user };
 };
 
 export interface SetUserErrorAction {
@@ -39,11 +38,12 @@ export const logUserIn = (
     dispatch: ThunkDispatch<{}, {}, AnyAction>
 ): Promise<void> => {
     try {
-        const res = await axios.post('http://finance-app-api.test/api/login', {
+        const response = await axios.post(`${process.env.API_URL}/login`, {
             email,
             password,
         });
-        dispatch(setUser(res.data.token, res.data.user));
+        console.log(response.data);
+        dispatch(setUser(response.data));
         Router.push('/dashboard');
     } catch (err) {
         console.dir(err.response.status);
