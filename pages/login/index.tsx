@@ -38,12 +38,10 @@ const LoginIndex: React.FunctionComponent<Props> = ({
     );
 };
 
-const mapStateToProps = (state: TEMP_any): TEMP_any => {
-    return {
-        user: state.user.user,
-        error: state.user.error,
-    };
-};
+const mapStateToProps = (state: TEMP_any): TEMP_any => ({
+    user: state.user.user,
+    error: state.user.error,
+});
 
 export default connect(
     mapStateToProps,

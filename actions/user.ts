@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import Router from 'next/router';
 
 export const userActions = {
     SET: 'user/SET',
@@ -43,6 +44,7 @@ export const logUserIn = (
             password,
         });
         dispatch(setUser(res.data.token, res.data.user));
+        Router.push('/dashboard');
     } catch (err) {
         console.dir(err.response.status);
         if (err.response.status == 401) {
