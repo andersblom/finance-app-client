@@ -34,25 +34,26 @@ export const setUserError = (error: string): SetUserErrorAction => {
 export const logUserIn = (
     email: string,
     password: string
-): ThunkAction<Promise<void>, {}, {}, AnyAction> => (
+): ThunkAction<Promise<void>, {}, {}, AnyAction> => async (
     dispatch: ThunkDispatch<{}, {}, AnyAction>
 ): Promise<void> => {
-    return axios
-        .post('http://finance-app-api.test/api/login', {
+    try {
+        const res = await axios.post('http://finance-app-api.test/api/login', {
             email,
             password,
-        })
-        .then(res => {
-            dispatch(setUser(res.data.token, res.data.user));
-        })
-        .catch(err => {
-            console.dir(err.response.status);
-            if (err.response.status == 401) {
-                // dispatch login incorrect error
-                dispatch(
-                    setUserError('User/password combination does not exist')
-                );
-            }
-            setUserError('Something went wrong! Please try again.');
         });
+        dispatch(setUser(res.data.token, res.data.user));
+    } catch (err) {
+        console.dir(err.response.status);
+        if (err.response.status == 401) {
+            /**
+             * User credentials were incorrect.
+             */
+            dispatch(setUserError('User/password combination does not exist'));
+        }
+        /**
+         * Fall back for any kind of error.
+         */
+        setUserError('Something went wrong! Please try again.');
+    }
 };
