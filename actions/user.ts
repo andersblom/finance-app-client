@@ -44,7 +44,6 @@ export const logUserIn = (
             email,
             password,
         });
-        console.log(response.data);
         dispatch(setUser(response.data));
         Router.push('/dashboard');
     } catch (err) {
