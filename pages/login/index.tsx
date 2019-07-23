@@ -27,14 +27,6 @@ const LoginIndex: React.FunctionComponent<Props> = ({
                 <LoginForm onSubmit={handleSubmit} />
                 {error && <div>{error}</div>}
             </div>
-            <hr />
-            {user && (
-                <div>
-                    <div>Success! Current user:</div>
-                    <div>{user.name}</div>
-                    <div>{user.email}</div>
-                </div>
-            )}
         </div>
     );
 };

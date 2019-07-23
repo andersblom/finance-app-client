@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Input from 'components/form/Input/Input';
+import Input from 'components/ui/form/Input/Input';
 
 type Props = {
     onSubmit: (e: React.FormEvent) => Action;
