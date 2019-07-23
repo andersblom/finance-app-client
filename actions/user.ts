@@ -47,7 +47,6 @@ export const logUserIn = (
         dispatch(setUser(response.data));
         Router.push('/dashboard');
     } catch (err) {
-        console.dir(err.response.status);
         if (err.response.status == 401) {
             /**
              * User credentials were incorrect.
