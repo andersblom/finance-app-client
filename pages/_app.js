@@ -1,7 +1,10 @@
 import App, {Container} from 'next/app';
 import React from 'react';
 import {Provider} from 'react-redux';
+import {ThemeProvider} from 'styled-components';
 import withReduxStore from 'lib/with-redux-store';
+
+import {theme} from 'lib/styled-components';
 
 class MyApp extends App {
   render () {
@@ -9,7 +12,9 @@ class MyApp extends App {
     return (
       <Container>
         <Provider store={reduxStore}>
-          <Component {...pageProps} />
+          <ThemeProvider theme={theme}>
+            <Component {...pageProps} />
+          </ThemeProvider>
         </Provider>
       </Container>
     );
