@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import Input from 'components/ui/form/Input/Input';
 
+import { LoginFormContainer } from './LoginForm.styles';
+
 type Props = {
     onSubmit: (e: React.FormEvent) => Action;
 };
@@ -18,7 +20,7 @@ const LoginForm: React.FunctionComponent<Props> = ({ onSubmit }) => {
     const isSubmitDisabled = email === '' || password === '';
 
     return (
-        <form onSubmit={onSubmit}>
+        <LoginFormContainer onSubmit={onSubmit}>
             <Input
                 name="email"
                 label="Email"
@@ -35,7 +37,7 @@ const LoginForm: React.FunctionComponent<Props> = ({ onSubmit }) => {
                 value={password}
             />
             <input type="submit" value="Log in" disabled={isSubmitDisabled} />
-        </form>
+        </LoginFormContainer>
     );
 };
 

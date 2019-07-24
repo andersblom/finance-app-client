@@ -5,6 +5,8 @@ import { ThemedStyledComponentsModule } from 'styled-components';
 export const theme = {
     color: {
         main: 'blue',
+        panel: 'white',
+        background: '#efefef',
     },
 };
 
