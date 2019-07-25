@@ -20,7 +20,7 @@ const LoginForm: React.FunctionComponent<Props> = ({ onSubmit }) => {
     const isSubmitDisabled = email === '' || password === '';
 
     return (
-        <LoginFormContainer onSubmit={onSubmit}>
+        <LoginFormContainer className="login-form" onSubmit={onSubmit}>
             <Input
                 name="email"
                 label="Email"
