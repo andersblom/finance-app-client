@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 
 import { logUserIn as logUserInAction } from 'actions/user';
 import LoginForm from 'components/LoginForm/LoginForm';
+import { ApplicationState } from 'typings/interfaces';
 
 import { LoginPageContainer } from './styles';
 
 type Props = {
-    logUserIn;
+    logUserIn: TEMP_any;
     error: string;
 };
 
@@ -27,11 +28,19 @@ const LoginIndex: React.FunctionComponent<Props> = ({ logUserIn, error }) => {
     );
 };
 
-const mapStateToProps = (state: TEMP_any): TEMP_any => ({
+type StateFromProps = {
+    error?: string;
+};
+
+type DispatchFromProps = {
+    logUserIn: TEMP_any;
+};
+
+const mapStateToProps = (state: ApplicationState) => ({
     error: state.user.error,
 });
 
-export default connect(
+export default connect<StateFromProps, DispatchFromProps>(
     mapStateToProps,
     {
         logUserIn: logUserInAction,
