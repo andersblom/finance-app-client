@@ -5,7 +5,7 @@ import { logUserIn as logUserInAction } from 'actions/user';
 import LoginForm from 'components/LoginForm/LoginForm';
 import { ApplicationState } from 'typings/interfaces';
 
-import { LoginPageContainer } from './styles';
+import { LoginPageContainer, Header } from './styles';
 
 type Props = {
     logUserIn: TEMP_any;
@@ -20,7 +20,7 @@ const LoginIndex: React.FunctionComponent<Props> = ({ logUserIn, error }) => {
     return (
         <LoginPageContainer>
             <div className="login-form-panel">
-                <div>Login</div>
+                <Header>Login</Header>
                 <LoginForm onSubmit={handleSubmit} />
                 {error && <div>{error}</div>}
             </div>

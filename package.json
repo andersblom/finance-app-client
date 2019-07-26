@@ -6,7 +6,7 @@
     "scripts": {
         "dev": "next",
         "build": "next build",
-        "lint:styles": "stylelint ./**/*.tsx",
+        "lint:styles": "stylelint ./**/*",
         "test": "jest",
         "test:coverage": "jest --coverage",
         "test:watch": "jest --watch",
