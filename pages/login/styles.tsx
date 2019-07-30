@@ -12,7 +12,6 @@ export const LoginPageContainer = styled.div`
     .login-form-panel {
         max-width: 320px;
         width: 90%;
-        padding: 20px;
         ${panelStyles}
     }
 `;
