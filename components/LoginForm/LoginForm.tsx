@@ -21,21 +21,25 @@ const LoginForm: React.FunctionComponent<Props> = ({ onSubmit }) => {
 
     return (
         <LoginFormContainer className="login-form" onSubmit={onSubmit}>
-            <Input
-                name="email"
-                label="Email"
-                placeholder="Please enter your email"
-                type="text"
-                onChange={handleEmailChange}
-                value={email}
-            />
-            <Input
-                name="password"
-                label="Password"
-                type="password"
-                onChange={handlePasswordChange}
-                value={password}
-            />
+            <div className="input-container">
+                <Input
+                    name="email"
+                    label="Email"
+                    placeholder="Please enter your email"
+                    type="text"
+                    onChange={handleEmailChange}
+                    value={email}
+                />
+            </div>
+            <div className="input-container">
+                <Input
+                    name="password"
+                    label="Password"
+                    type="password"
+                    onChange={handlePasswordChange}
+                    value={password}
+                />
+            </div>
             <input type="submit" value="Log in" disabled={isSubmitDisabled} />
         </LoginFormContainer>
     );

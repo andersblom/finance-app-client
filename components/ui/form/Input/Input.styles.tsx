@@ -1,14 +1,37 @@
-import styled from 'lib/styled-components';
+import styled, { css } from 'lib/styled-components';
 
 import { FormLabel } from 'lib/styles/typography';
+import { inputStyles } from 'lib/styles/mixins';
 
-export const InputContainer = styled.div``;
+type InputProps = {
+    active: boolean;
+};
 
-export const StyledInputField = styled.input`
-    padding: 4px 8px;
+export const StyledInputField = styled.input<InputProps>`
+    ${inputStyles}
+    width: 100%;
+
+    transition: 200ms border-color ease;
+
+    ${props =>
+        props.active &&
+        css`
+            border-color: black;
+        `}
 `;
 
-export const Label = styled(FormLabel)`
+type LabelProps = {
+    active: boolean;
+};
+
+export const Label = styled(FormLabel)<LabelProps>`
     display: block;
     margin-bottom: 4px;
+    transition: 200ms color ease;
+
+    ${props =>
+        props.active &&
+        css`
+            color: ${props.theme.color.main};
+        `}
 `;

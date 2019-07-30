@@ -6,3 +6,13 @@ export const panelStyles = css`
     border-radius: 3px;
     padding: 20px;
 `;
+
+export const inputStyles = css`
+    padding: 4px 8px;
+    height: 40px;
+    box-sizing: border-box;
+
+    box-shadow: none;
+    outline: none;
+    border: 1px solid #dedede;
+`;
