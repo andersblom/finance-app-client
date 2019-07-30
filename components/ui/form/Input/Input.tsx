@@ -1,27 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+
+import useInputActiveState from '../useInputActiveState';
 
 import { StyledInputField, Label } from './Input.styles';
-
-const useInputActiveState = () => {
-    const [active, setActive] = useState(false);
-
-    const handleFocus = () => {
-        if (!active) {
-            setActive(true);
-        }
-    };
-    const handleBlur = () => {
-        if (active) {
-            setActive(false);
-        }
-    };
-
-    return {
-        active,
-        handleFocus,
-        handleBlur,
-    };
-};
 
 type Props = {
     name: string;
