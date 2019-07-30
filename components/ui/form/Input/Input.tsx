@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { InputContainer, StyledInputField, Label } from './Input.styles';
+
 type Props = {
     name: string;
     type?: 'text' | 'password';
@@ -17,16 +19,21 @@ const Input: React.FunctionComponent<Props> = ({
     onChange,
     value,
 }) => (
-    <div>
-        {label && <label htmlFor={name}>{label}</label>}
-        <input
+    <InputContainer>
+        {label && (
+            <Label htmlFor={name} className="input-label">
+                {label}
+            </Label>
+        )}
+        <StyledInputField
+            id={`input-field-${name}`}
             type={type}
             name={name}
             placeholder={placeholder}
             onChange={onChange}
             value={value}
         />
-    </div>
+    </InputContainer>
 );
 
 export default Input;

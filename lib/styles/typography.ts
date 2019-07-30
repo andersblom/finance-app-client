@@ -7,6 +7,7 @@ export const HeaderOne = styled.h1`
 `;
 
 export const FormLabel = styled.label`
-    font-size: 14px;
+    font-size: 12px;
     color: #dedede;
+    text-transform: uppercase;
 `;

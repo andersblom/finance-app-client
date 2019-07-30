@@ -18,7 +18,7 @@ describe('LoginForm', () => {
         );
 
         wrapper
-            .find('input[name="email"]')
+            .find('#input-field-email')
             .simulate('change', { target: { value: 'anders@andersblom.dk' } });
 
         expect(wrapper.find('input[type="submit"]').props().disabled).toBe(
@@ -26,7 +26,7 @@ describe('LoginForm', () => {
         );
 
         wrapper
-            .find('input[name="password"]')
+            .find('#input-field-password')
             .simulate('change', { target: { value: 'testing123' } });
 
         expect(wrapper.find('input[type="submit"]').props().disabled).toBe(
