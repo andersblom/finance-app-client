@@ -22,4 +22,19 @@ describe('Input', () => {
         expect(wrapper.find('label').exists()).toBe(true);
         expect(wrapper.find('label').text()).toBe('email');
     });
+
+    it('emits an event to the onChange prop', () => {
+        const onChangeMock = jest.fn();
+        const wrapper = shallow(
+            <Input {...defaultProps} onChange={onChangeMock} />
+        );
+
+        wrapper.find('input').simulate('change', {
+            target: { value: 'test' },
+        });
+
+        expect(onChangeMock).toHaveBeenCalledWith({
+            target: { value: 'test' },
+        });
+    });
 });
