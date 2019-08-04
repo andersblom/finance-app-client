@@ -1,19 +1,30 @@
 import React from 'react';
 import Link from 'next/link';
 
+import { HeaderContainer } from './Header.styles';
+
 const Header: React.FunctionComponent = () => {
     return (
-        <div>
+        <HeaderContainer>
             <div>logo</div>
-            <div>
-                <Link href="dashboard">
-                    <a>Dashboard</a>
-                </Link>
-                <Link href="budgets">
-                    <a>Budgets</a>
-                </Link>
-            </div>
-        </div>
+            <ul className="navigation">
+                <li className="navigation-item">
+                    <Link href="dashboard">
+                        <a>Dashboard</a>
+                    </Link>
+                </li>
+                <li className="navigation-item">
+                    <Link href="budgets">
+                        <a>Budgets</a>
+                    </Link>
+                </li>
+                <li className="navigation-item">
+                    <Link href="budgets">
+                        <a>Account</a>
+                    </Link>
+                </li>
+            </ul>
+        </HeaderContainer>
     );
 };
 
