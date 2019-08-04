@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 
+import Header from 'components/Header/Header';
 import { User } from 'typings/interfaces';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 
@@ -10,7 +11,10 @@ type Props = {
 
 const Dashboard: React.FunctionComponent<Props> = ({ user }) => (
     <PrivateRoute>
-        <div>Welcome back, {user && user.name}</div>
+        <Fragment>
+            <Header />
+            <div>Welcome back, {user && user.name}</div>
+        </Fragment>
     </PrivateRoute>
 );
 

@@ -80,7 +80,6 @@ export const getUserFromToken = (
                 token,
             })
         );
-        Router.push('/dashboard');
     } catch (err) {
         console.log(err);
     }
