@@ -11,8 +11,7 @@ export const userActions = {
     SET_ERROR: 'user/SET_ERROR',
 };
 
-export interface SetUserAction {
-    type: string;
+export interface SetUserAction extends AnyAction {
     payload: User;
 }
 
@@ -20,8 +19,7 @@ export const setUser: ActionCreator<SetUserAction> = (user: User) => {
     return { type: userActions.SET, payload: user };
 };
 
-export interface SetUserErrorAction {
-    type: string;
+export interface SetUserErrorAction extends AnyAction {
     payload: string;
 }
 

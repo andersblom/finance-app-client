@@ -24,7 +24,7 @@ const getTokenFromRequest = (req: TEMP_any) => {
 };
 
 type Props = {
-    reduxStore: any;
+    reduxStore: TEMP_any;
     token?: string;
 };
 

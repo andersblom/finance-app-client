@@ -1,14 +1,50 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
+import { connect } from 'react-redux';
+
+import { getAllBudgets as getAllBudgetsAction } from 'actions/budgets';
 import Header from 'components/Header/Header';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
+import { ApplicationState, Budget } from 'typings/interfaces';
 
-const BudgetsIndex: React.FunctionComponent = () => (
-    <PrivateRoute>
-        <Fragment>
-            <Header />
-            <div>budgets overview</div>
-        </Fragment>
-    </PrivateRoute>
-);
+type Props = {
+    getAllBudgets: TEMP_any;
+    budgets: Budget[];
+};
 
-export default BudgetsIndex;
+const BudgetsIndex: React.FunctionComponent<Props> = ({
+    getAllBudgets,
+    budgets = [],
+}) => {
+    useEffect(() => {
+        getAllBudgets();
+    }, []);
+    return (
+        <PrivateRoute>
+            <Fragment>
+                <Header />
+                <div>
+                    {budgets.map(budget => (
+                        <div key={budget.id}>{budget.name}</div>
+                    ))}
+                </div>
+            </Fragment>
+        </PrivateRoute>
+    );
+};
+
+type StateFromProps = {
+    budgets: Budget[];
+};
+
+type DispatchFromProps = {
+    getAllBudgets: TEMP_any;
+};
+
+const mapStateToProps = (state: ApplicationState) => ({
+    budgets: state.budgets.all,
+});
+
+export default connect<StateFromProps, DispatchFromProps>(
+    mapStateToProps,
+    { getAllBudgets: getAllBudgetsAction }
+)(BudgetsIndex);

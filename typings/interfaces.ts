@@ -10,6 +10,19 @@ export interface UserState {
     error?: string;
 }
 
+export interface Budget {
+    id: number;
+    name: string;
+    slug: string;
+    user_id: number;
+}
+
+export interface BudgetsState {
+    all?: Budget[];
+    current?: Budget;
+}
+
 export interface ApplicationState {
-    user: UserState;
+    user?: UserState;
+    budgets?: BudgetsState;
 }
