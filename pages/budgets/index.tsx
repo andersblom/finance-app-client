@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
+import Link from 'next/link';
 
 import { getAllBudgets as getAllBudgetsAction } from 'actions/budgets';
 import Header from 'components/Header/Header';
@@ -24,7 +25,11 @@ const BudgetsIndex: React.FunctionComponent<Props> = ({
                 <Header />
                 <div>
                     {budgets.map(budget => (
-                        <div key={budget.id}>{budget.name}</div>
+                        <div key={budget.id}>
+                            <Link href={`/budgets/${budget.slug}`}>
+                                <a>{budget.name}</a>
+                            </Link>
+                        </div>
                     ))}
                 </div>
             </Fragment>
