@@ -8,18 +8,18 @@ const Header: React.FunctionComponent = () => {
         <HeaderContainer>
             <div>logo</div>
             <ul className="navigation">
-                <li className="navigation-item">
+                <li className="navigation-item dashboard">
                     <Link href="dashboard">
                         <a>Dashboard</a>
                     </Link>
                 </li>
-                <li className="navigation-item">
+                <li className="navigation-item budgets">
                     <Link href="budgets">
                         <a>Budgets</a>
                     </Link>
                 </li>
-                <li className="navigation-item">
-                    <Link href="budgets">
+                <li className="navigation-item account">
+                    <Link href="account">
                         <a>Account</a>
                     </Link>
                 </li>
