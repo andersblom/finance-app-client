@@ -40,7 +40,7 @@ const LoginForm: React.FunctionComponent<Props> = ({ onSubmit }) => {
                     value={password}
                 />
             </div>
-            <input type="submit" value="Log in" disabled={isSubmitDisabled} />
+            <input type="submit" value="Log in" />
         </LoginFormContainer>
     );
 };
