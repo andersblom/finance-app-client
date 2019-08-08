@@ -17,8 +17,6 @@ const LoginForm: React.FunctionComponent<Props> = ({ onSubmit }) => {
     const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) =>
         setPassword(e.target.value);
 
-    const isSubmitDisabled = email === '' || password === '';
-
     return (
         <LoginFormContainer className="login-form" onSubmit={onSubmit}>
             <div className="input-container">
