@@ -13,7 +13,7 @@ const Dashboard: React.FunctionComponent<Props> = ({ user }) => (
     <PrivateRoute>
         <Fragment>
             <Header />
-            <div>Welcome back, {user && user.name}</div>
+            <div>Welcome back, {user && user.name}!</div>
         </Fragment>
     </PrivateRoute>
 );
