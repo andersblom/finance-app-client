@@ -6,7 +6,7 @@ import { logUserIn as logUserInAction } from 'actions/user';
 import LoginForm from 'components/LoginForm/LoginForm';
 import { ApplicationState } from 'typings/interfaces';
 
-import { LoginPageContainer, Header } from './styles';
+import { LoginPageContainer, Header } from 'lib/pageStyles/login';
 
 type Props = {
     logUserIn: TEMP_any;
