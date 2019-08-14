@@ -22,4 +22,20 @@ describe('BudgetList', () => {
 
         expect(wrapper.find('li.budget').length).toBe(2);
     });
+
+    it('renders a link based on the slug', () => {
+        const wrapper = mount(
+            <BudgetList
+                {...defaultProps}
+                items={[{ id: 1, name: 'My budget', slug: 'my-budget' }]}
+            />
+        );
+
+        expect(
+            wrapper
+                .find('li.budget')
+                .find('a')
+                .props().href
+        ).toBe('/budget/my-budget');
+    });
 });
