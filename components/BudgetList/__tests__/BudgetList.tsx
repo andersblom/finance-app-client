@@ -1,12 +1,13 @@
 import React from 'react';
-import { mount } from 'enzyme';
+
+import mountWithTheme from 'lib/utils/mountWithTheme';
 
 import BudgetList from '../BudgetList';
 
 describe('BudgetList', () => {
     const defaultProps = {};
     it('renders a list of N items', () => {
-        const wrapper = mount(
+        const wrapper = mountWithTheme(
             <BudgetList
                 {...defaultProps}
                 items={[
@@ -20,11 +21,11 @@ describe('BudgetList', () => {
             />
         );
 
-        expect(wrapper.find('li.budget').length).toBe(2);
+        expect(wrapper.find('li.budget-item').length).toBe(2);
     });
 
     it('renders a link based on the slug', () => {
-        const wrapper = mount(
+        const wrapper = mountWithTheme(
             <BudgetList
                 {...defaultProps}
                 items={[{ id: 1, name: 'My budget', slug: 'my-budget' }]}
@@ -33,9 +34,9 @@ describe('BudgetList', () => {
 
         expect(
             wrapper
-                .find('li.budget')
+                .find('li.budget-item')
                 .find('a')
                 .props().href
-        ).toBe('/budget/my-budget');
+        ).toBe('/budgets/my-budget');
     });
 });

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Link from 'next/link';
 
 import { getAllBudgets as getAllBudgetsAction } from 'actions/budgets';
+import BudgetList from 'components/BudgetList/BudgetList';
 import Header from 'components/Header/Header';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 import { ApplicationState, Budget } from 'typings/interfaces';
@@ -24,7 +25,7 @@ const BudgetsIndex: React.FunctionComponent<Props> = ({
             <Fragment>
                 <Header />
                 {budgets.length ? (
-                    <div>budgets</div>
+                    <BudgetList items={budgets} />
                 ) : (
                     <div>No budgets available :(</div>
                 )}
