@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Input from 'components/ui/form/Input/Input';
 
-import { LoginFormContainer } from './LoginForm.styles';
+import { LoginFormContainer } from './LoginFormStyles';
 
 type Props = {
     onSubmit: (e: React.FormEvent) => Action;

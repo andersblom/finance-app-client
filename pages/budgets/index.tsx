@@ -23,15 +23,12 @@ const BudgetsIndex: React.FunctionComponent<Props> = ({
         <PrivateRoute>
             <Fragment>
                 <Header />
-                <div>
-                    {budgets.map(budget => (
-                        <div key={budget.id}>
-                            <Link href={`/budgets/${budget.slug}`}>
-                                <a>{budget.name}</a>
-                            </Link>
-                        </div>
-                    ))}
-                </div>
+                {budgets.length ? (
+                    <div>budgets</div>
+                ) : (
+                    <div>No budgets available :(</div>
+                )}
+                <button>Add budget</button>
             </Fragment>
         </PrivateRoute>
     );

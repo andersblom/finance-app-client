@@ -7,31 +7,19 @@ describe('LoginForm', () => {
         onSubmit: () => {},
     };
 
-    it('disables the submit button until email and password is filled out', () => {
+    it('uses onSubmit when submitted', () => {
         const mockSubmit = jest.fn();
         const wrapper = mount(
             <LoginForm {...defaultProps} onSubmit={mockSubmit} />
         );
 
-        expect(wrapper.find('input[type="submit"]').props().disabled).toBe(
-            true
-        );
-
         wrapper
-            .find('#input-field-email')
+            .find('input#input-field-email')
             .simulate('change', { target: { value: 'anders@andersblom.dk' } });
 
-        expect(wrapper.find('input[type="submit"]').props().disabled).toBe(
-            true
-        );
-
         wrapper
-            .find('#input-field-password')
+            .find('input#input-field-password')
             .simulate('change', { target: { value: 'testing123' } });
-
-        expect(wrapper.find('input[type="submit"]').props().disabled).toBe(
-            false
-        );
 
         wrapper.find('input[type="submit"]').simulate('submit');
 
