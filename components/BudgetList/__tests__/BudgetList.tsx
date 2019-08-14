@@ -8,10 +8,18 @@ describe('BudgetList', () => {
     it('renders a list of N items', () => {
         const wrapper = mount(
             <BudgetList
-                items={[{ id: 1, name: 'My budget', slug: 'my-budget' }]}
+                {...defaultProps}
+                items={[
+                    { id: 1, name: 'My budget', slug: 'my-budget' },
+                    {
+                        id: 2,
+                        name: 'My second budget',
+                        slug: 'my-second-budget',
+                    },
+                ]}
             />
         );
 
-        expect(wrapper.exists()).toBe(true);
+        expect(wrapper.find('li.budget').length).toBe(2);
     });
 });
