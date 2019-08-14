@@ -14,7 +14,6 @@ export interface Budget {
     id: number;
     name: string;
     slug: string;
-    user_id: number;
 }
 
 export interface BudgetsState {
